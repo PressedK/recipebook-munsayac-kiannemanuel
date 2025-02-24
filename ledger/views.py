@@ -139,6 +139,3 @@ def recipe2(request):
     }
 
     return render(request, 'recipe2.html', ctx)
-
-def index(request):
-    return HttpResponse('homepage') #TO  
