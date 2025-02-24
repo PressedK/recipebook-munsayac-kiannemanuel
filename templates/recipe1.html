@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block title %}Recipe Book Homepage{% endblock %}
+        {% block content %}
+        <ul>
+            
+            {%for ingredient_info in ingredients %}
+                <li>
+                    <p> {{ingredient_info.name}} - {{ingredient_info.quantity}} </p>
+                </li>    
+            {%endfor%}
+            
+        </ul>
+        {% endblock %}

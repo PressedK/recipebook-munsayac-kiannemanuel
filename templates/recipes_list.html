@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block title %}Recipe Book Homepage{% endblock %}
+        {% block content %}
+            <ul>
+                {%for recipes in recipes %}
+                    <li>
+                        <a href="/ledger{{recipes.link}}"> {{recipes.name}} </a>
+                    </li>    
+                {%endfor%}
+            </ul>
+        {% endblock %}

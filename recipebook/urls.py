@@ -18,6 +18,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 urlpatterns = [
-    path('', include('ledger.urls', namespace="ledger")),
+    path('ledger/', include('ledger.urls', namespace="ledger")),
     path('admin/', admin.site.urls),
 ]
