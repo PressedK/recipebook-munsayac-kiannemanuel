@@ -1,0 +1,15 @@
+<!-- taskapp/templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>{% block title %} Recipe List Header {%endblock %}</title>
+    {% block styles %}{% endblock %}
+</head>
+<body>
+    <div id="content">
+        <h3>Recipe Book</h3>
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
