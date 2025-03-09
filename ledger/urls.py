@@ -1,10 +1,8 @@
 from django.urls import path
-from .views import index, recipes_list, recipe1, recipe2 #every new page gets added here
+from .views import recipes_list, recipe_detail #every new page gets added here
 urlpatterns = [
-    path('', index, name='index'),
+  
     path('recipes/list', recipes_list, name='recipes_list'),
-    path('recipe/1', recipe1, name='recipe1'),
-    path('recipe/2', recipe2, name='recipe2'),
+    path('recipe/<int:recipes_id>', recipe_detail, name='recipe_detail'),
+   
 ]
-
-app_name = "ledger"

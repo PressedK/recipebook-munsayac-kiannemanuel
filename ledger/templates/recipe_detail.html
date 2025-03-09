@@ -5,9 +5,9 @@
         {% block content %}
         <ul>
             
-            {%for ingredient_info in ingredients %}
+            {%for var in recipe.ingredients.all %}
                 <li>
-                    <p> {{ingredient_info.name}} - {{ingredient_info.quantity}} </p>
+                    <p> {{var.ingredient.name}} - {{var.Quantity}}  </p>
                 </li>    
             {%endfor%}
             
