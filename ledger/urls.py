@@ -6,5 +6,3 @@ urlpatterns = [
     path('recipe/<int:recipes_id>', recipe_detail, name='recipe_detail'),
    
 ]
-
-app_name = "ledger"

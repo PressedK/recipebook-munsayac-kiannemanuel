@@ -10,9 +10,9 @@ def recipes_list(request):
     return render(request, 'recipes_list.html', ctx)
 
 def recipe_detail(request, recipes_id):
-    recipes = Recipe.objects.get(id=recipes_id)
+    recipe = Recipe.objects.get(id=recipes_id)
     ctx = {
-        'recipes': recipes
+        'recipe': recipe
     }
     return render(request, 'recipe_detail.html', ctx)
 
