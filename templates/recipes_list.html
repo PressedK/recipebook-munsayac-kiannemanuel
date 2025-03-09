@@ -4,9 +4,9 @@
     {% block title %}Recipe Book Homepage{% endblock %}
         {% block content %}
             <ul>
-                {%for recipes in recipes %}
+                {%for n in recipes %}
                     <li>
-                        <a href="/ledger{{recipes.link}}"> {{recipes.name}} </a>
+                        <a href="{{n.get_absolute_url}}"> Recipe: {{n.name}} </a>
                     </li>    
                 {%endfor%}
             </ul>
