@@ -4,7 +4,12 @@
     {% block title %}Recipe Book Homepage{% endblock %}
         {% block content %}
         <ul>
-            
+         
+        <h3>Recipe: {{recipe.name}}</h3>   
+        <h4>Author: {{recipe.author}}</h4>
+        <h4>Created On: {{recipe.created_on}}</h4>
+        <h4>Updated On: {{recipe.updated_on}}</h4>
+
             {%for var in recipe.ingredients.all %}
                 <li>
                     <p> {{var.ingredient.name}} - {{var.Quantity}}  </p>
