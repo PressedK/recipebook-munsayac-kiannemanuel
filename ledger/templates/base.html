@@ -3,28 +3,29 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="style.css">
-    <title>{% block title %}{%endblock %}</title>
     {% block styles %}{% endblock %}
 </head>
 <body>
     <div id="content">
-        <h3>{% block page_heading %}{% endblock %}</h3>
+        <header>
+            <h1>Recipe Book</h1>
 
-        {% if user.is_authenticated %}
-            <form method="POST" action="{% url 'logout' %}">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">Logout</button>
-            </form>
+            {% if user.is_authenticated %}
+                <form method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Logout</button>
+                </form>
+            {% else %}
+                <form method="POST" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Login</button>
+                </form>
+            {% endif %}
+        </header>
 
-            {%else%}
-            <form method="POST" action="{% url 'login' %}">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">Login</button>
-            </form> 
-        {% endif %}
-        
+        <h2>{% block page_heading %}{% endblock %}</h2>
         {% block content %}{% endblock %}
     </div>
 </body>

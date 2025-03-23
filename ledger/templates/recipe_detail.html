@@ -1,19 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
 
-    {% block title %}Recipe Book Detail View{% endblock %}
-    {% block page_heading %}Recipe: {{recipe.name}}{% endblock %}
-        {% block content %}
-        <ul>
-        <h4>Author: {{recipe.author}}</h4>
-        <h4>Created On: {{recipe.created_on}}</h4>
-        <h4>Updated On: {{recipe.updated_on}}</h4>
+{% block title %}Recipe Book Detail View{% endblock %}
 
-            {%for var in recipe.ingredients.all %}
-                <li>
-                    <p> {{var.ingredient.name}} - {{var.Quantity}}  </p>
-                </li>    
-            {%endfor%}
-            
-        </ul>
-        {% endblock %}
+{% block page_heading %}Recipe: {{ recipe.name }}{% endblock %}
+
+{% block content %}
+    <h4>Author: {{ recipe.author }}</h4>
+    <h4>Created On: {{ recipe.created_on }}</h4>
+    <h4>Updated On: {{ recipe.updated_on }}</h4>
+
+    <h4>Ingredients:</h4>
+    {% for var in recipe.ingredients.all %}
+        <p>{{ var.ingredient.name }} - {{ var.Quantity }}</p>
+    {% endfor %}
+{% endblock %}

@@ -6,7 +6,6 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 class RecipeAdmin(admin.ModelAdmin):
     model = Recipe
     search_fields = ('name', )
-
     
 class IngredientAdmin(admin.ModelAdmin):
     model = Ingredient
@@ -14,12 +13,8 @@ class IngredientAdmin(admin.ModelAdmin):
     
 class RecipeIngredientAdmin(admin.ModelAdmin):
     model = RecipeIngredient
-
-     # Use the name to search
     search_fields = ('recipe', 'ingredient', 'Quantity' )
-    # Display just the name and the due date in the list
     list_display = ('recipe', 'ingredient', 'Quantity' )
-    # Enable filtering via the teacher's name and the number of units
     list_filter = ('recipe', 'ingredient', 'Quantity' )
 
 class ProfileInline(admin.StackedInline):
