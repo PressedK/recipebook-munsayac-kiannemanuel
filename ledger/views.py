@@ -18,3 +18,7 @@ def recipe_detail(request, recipes_id):
     }
     return render(request, 'recipe_detail.html', ctx)
 
+def login(request):
+    return render(request, 'login.html')
+
+

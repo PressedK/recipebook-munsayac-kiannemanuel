@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 
-    {% block title %}Recipe Book Homepage{% endblock %}
+    {% block title %}Recipe Book List View{% endblock %}
+    {% block page_heading %}Recipe Book List View{% endblock %}
         {% block content %}
             <ul>
                 {%for n in recipes %}

@@ -1,4 +1,4 @@
-{% extends "base.html %}
+{% extends "base.html" %}
 {% load static %}
 
 {% block title %}Recipe Book - Login{% endblock %}
@@ -8,6 +8,5 @@
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Login</button>
-        </form>
- 
+        </form> 
 {%endblock%}

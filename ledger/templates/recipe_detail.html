@@ -1,11 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
-    {% block title %}Recipe Book Homepage{% endblock %}
+    {% block title %}Recipe Book Detail View{% endblock %}
+    {% block page_heading %}Recipe: {{recipe.name}}{% endblock %}
         {% block content %}
         <ul>
-         
-        <h3>Recipe: {{recipe.name}}</h3>   
         <h4>Author: {{recipe.author}}</h4>
         <h4>Created On: {{recipe.created_on}}</h4>
         <h4>Updated On: {{recipe.updated_on}}</h4>

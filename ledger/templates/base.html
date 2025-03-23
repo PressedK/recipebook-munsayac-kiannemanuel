@@ -3,17 +3,28 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="style.css">
-    <title>{% block title %} Recipe List Header {%endblock %}</title>
+    <title>{% block title %}{%endblock %}</title>
     {% block styles %}{% endblock %}
 </head>
 <body>
     <div id="content">
-        <h3>Recipe Book</h3>
-        <form method="POST" action="{% url 'logout' %}">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Logout</button>
-        </form>
+        <h3>{% block page_heading %}{% endblock %}</h3>
+
+        {% if user.is_authenticated %}
+            <form method="POST" action="{% url 'logout' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Logout</button>
+            </form>
+
+            {%else%}
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Login</button>
+            </form> 
+        {% endif %}
+        
         {% block content %}{% endblock %}
     </div>
 </body>
