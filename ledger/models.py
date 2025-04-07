@@ -29,7 +29,7 @@ class Recipe(models.Model):
         return reverse("recipe_detail", args=[str(self.id)])  
     
 class RecipeImage(models.Model):
-    recipe_image = models.ImageField(models.ImageField(upload_to='images/', null=True))
+    recipe_image = models.ImageField(upload_to='images/', null=True)
     description = models.CharField(max_length=255)
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name = 'images')
 

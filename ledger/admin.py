@@ -1,10 +1,14 @@
 from django.contrib import admin
-from .models import Recipe, Ingredient, RecipeIngredient, Profile   
+from .models import Recipe, Ingredient, RecipeIngredient, Profile, RecipeImage   
 from django.contrib.auth.models import User
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
+class RecipeImageInline(admin.TabularInline):  
+    model = RecipeImage 
+
 class RecipeAdmin(admin.ModelAdmin):
     model = Recipe
+    inlines = [RecipeImageInline,]
     search_fields = ('name', )
     
 class IngredientAdmin(admin.ModelAdmin):
