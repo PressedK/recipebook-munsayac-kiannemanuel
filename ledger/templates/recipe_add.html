@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Recipe Book Add View{% endblock %}
+
+{% block page_heading %} Add Recipes {% endblock %}
+
+
+{% block content %}
+     
+    <form method="post">
+        {% csrf_token %}
+        {{ recipe_form.as_p }}
+        <button type="submit">Save Recipe</button>
+    </form>
+
+
+{% endblock %}
