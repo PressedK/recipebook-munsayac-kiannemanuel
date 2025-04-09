@@ -75,6 +75,10 @@ def recipe_add(request):
             if recipeingredient_form.is_valid():
                 recipeingredient = recipeingredient_form.save()
                 recipeingredient.save()
+
+                recipe = recipeingredient.recipe
+                recipe.updated_on = timezone.now()
+                recipe.save()
                 return redirect('recipe_add')
                
     ctx = {'recipe_form': recipe_form, 
