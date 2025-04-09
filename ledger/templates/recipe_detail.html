@@ -3,17 +3,20 @@
 
 {% block title %}Recipe Book Detail View{% endblock %}
 
-{% block page_heading %}Recipe: {{ recipe.name }}{% endblock %}
+{% block page_heading %}Recipe Detail View: {{ recipe.name }}{% endblock %}
 
 {% block content %}
     {% if recipe.images.all %}
         {% for image in recipe.images.all %}
-        <img src="{{ image.recipe_image.url }}" 
+        <img src='{{ image.recipe_image.url }}'
             alt="{{ image.description|default:'Recipe image' }}" 
             style="max-width: 150px;">
         
         {% endfor %}
     {% endif %}
+
+    <a href="{% url 'add_image_recipe_detail' recipe.pk %}">Upload New Image</a>
+
     <h4>Author: {{ recipe.author }}</h4>
     <h4>Created On: {{ recipe.created_on }}</h4>
     <h4>Updated On: {{ recipe.updated_on }}</h4>
@@ -21,4 +24,5 @@
     {% for var in recipe.ingredients.all %}
         <p>{{ var.ingredient.name }} - {{ var.Quantity }}</p>
     {% endfor %}
+    <a href="{% url 'recipes_list' %}">Back to Recipe List View</a>
 {% endblock %}
