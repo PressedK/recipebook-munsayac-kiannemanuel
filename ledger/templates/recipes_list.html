@@ -5,10 +5,15 @@
     {% block page_heading %}Recipe Book List View{% endblock %}
         {% block content %}
             <ul>
+                <h4>Recipe List</h4>
                 {%for n in recipes %}
                     <li>
                         <a href="{{n.get_absolute_url}}"> Recipe: {{n.name}} </a>
                     </li>    
                 {%endfor%}
+
+                <h4>Add Recipe View</h4>
+                <a href="{% url 'recipe_add' %}" > Add Recipes </a>
+
             </ul>
         {% endblock %}

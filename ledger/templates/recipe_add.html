@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Recipe Book Add View{% endblock %}
+
+{% block page_heading %} Add Recipe View {% endblock %}
+
+
+{% block content %}
+    <h3>Add New Recipe</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ recipe_form.as_p }}
+        <button type="submit" name="recipe_submit">Save Recipe</button>
+    </form>
+    <h3>Add New Ingredient</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ ingredient_form.as_p }}
+        <button type="submit" name="ingredient_submit">Save Ingredient</button>
+    </form>
+    <h3>Edit Recipe</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ recipeingredient_form.as_p }}
+        <button type="submit" name="recipeingredient_submit">Save Edits to Recipe</button>
+    </form>
+    <a href="{% url 'recipes_list' %}">Back to Recipe List View</a>
+{% endblock %}

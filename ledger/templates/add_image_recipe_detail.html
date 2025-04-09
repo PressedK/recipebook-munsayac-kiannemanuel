@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Add Image View{% endblock %}
+
+{% block content %}
+    <h3>Add Image for {{recipe.name}}</h3>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ recipeimage_form.as_p }}
+        <button type="submit" name="image_submit">Add Image</button>
+    </form>
+    <a href="{% url 'recipes_list' %}">Back to Recipe List View</a>
+{% endblock %}
